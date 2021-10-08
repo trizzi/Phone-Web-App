@@ -1,4 +1,5 @@
-import React from 'react';
+import PropTypes from 'prop-types';
+import Phone from './Phone';
 
 const PhoneItems = ({
 	phone: {
@@ -28,6 +29,10 @@ const PhoneItems = ({
 			</div>
 		</div>
 	);
+};
+
+PhoneItems.propTypes = {
+	phone: PropTypes.object.isRequired,
 };
 
 export default PhoneItems;
