@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
-import Phone from './Phone';
+import PhoneContext from '../../context/phone-context/phoneContext';
+import { useContext } from 'react';
 
 const PhoneItems = ({
 	phone: {
-		img,
+		imgUrl,
 		name,
 		carrier,
 		storage_size,
@@ -11,9 +11,17 @@ const PhoneItems = ({
 		quantity,
 	},
 }) => {
+	const phoneContext = useContext(PhoneContext);
+	// const { carrier, storage_size, price } = phoneContext;
+
+	// useEffect(() => {
+	// 	phoneContext.getPhonesPrice();
+	// 	// eslint-disable-next-line
+	// }, []);
+	// console.log('vvv', price);
 	return (
-		<div className='card text-center'>
-			<img src={img} alt='' style={{ width: '60px' }} />
+		<div className='card text-center  bg-grey'>
+			<img src={imgUrl} alt='' style={{ width: '60px' }} />
 			<h3>{name}</h3>
 			<p>
 				{carrier}
@@ -29,10 +37,6 @@ const PhoneItems = ({
 			</div>
 		</div>
 	);
-};
-
-PhoneItems.propTypes = {
-	phone: PropTypes.object.isRequired,
 };
 
 export default PhoneItems;
