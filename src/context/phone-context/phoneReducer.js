@@ -12,6 +12,7 @@ export default (state, action) => {
 			return {
 				...state,
 				phones: action.payload,
+				filtered: action.payload,
 				loading: false,
 			};
 		case PHONE_DETAILS:
@@ -25,15 +26,17 @@ export default (state, action) => {
 				...state,
 				filtered: state.phones.filter((phone) => {
 					const regex = new RegExp(
-						`${action.payload},'^[0-9,]*$gi'`
+						`${action.payload},  '^[0-9,]*$gi'`
 					);
-					return phone.name.match(regex);
+					return phone.name
+						.toLowerCase()
+						.includes(action.payload);
 				}),
 			};
 		case CLEAR_FILTER:
 			return {
 				...state,
-				filtered: null,
+				filtered: state.phones,
 			};
 		case SET_LOADING:
 			return {

@@ -16,7 +16,7 @@ const PhoneState = (props) => {
 		phones: [],
 		phoneDetails: {},
 		loading: false,
-		filtered: null,
+		filtered: [],
 	};
 
 	const [state, dispatch] = useReducer(

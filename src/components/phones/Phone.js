@@ -5,21 +5,23 @@ import Spinner from '../layout/Spinner';
 
 const Phone = () => {
 	const phoneContext = useContext(PhoneContext);
-
+	const { loading, filtered } = phoneContext;
 	useEffect(() => {
 		phoneContext.getPhones();
 		// eslint-disable-next-line
 	}, []);
 
-	const { loading, phones } = phoneContext;
+	// if (phones.length === 0) {
+	// 	return <h4>Please type a phone name</h4>;
+	// }
 
-	console.log('hhhhhh--> ', phones);
+	console.log('hhhhhh--> ', filtered);
 	if (loading) {
 		return <Spinner />;
 	} else {
 		return (
 			<div style={phoneStyle}>
-				{phones.map((phone) => (
+				{filtered.map((phone) => (
 					<PhoneItems key={phone._id} phone={phone} />
 				))}
 			</div>

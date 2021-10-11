@@ -2,15 +2,9 @@ import PhoneContext from '../../context/phone-context/phoneContext';
 import { useContext } from 'react';
 
 const PhoneItems = ({
-	phone: {
-		imgUrl,
-		name,
-		carrier,
-		storage_size,
-		price,
-		quantity,
-	},
+	phone: { imgUrl, name, quantity, lowestAsk },
 }) => {
+	console.log('lowestAsk --> ', lowestAsk);
 	const phoneContext = useContext(PhoneContext);
 	// const { carrier, storage_size, price } = phoneContext;
 
@@ -24,11 +18,15 @@ const PhoneItems = ({
 			<img src={imgUrl} alt='' style={{ width: '60px' }} />
 			<h3>{name}</h3>
 			<p>
-				{carrier}
+				{lowestAsk ? lowestAsk.carrier : 'No carrier'}
 				{''}
-				{storage_size}
+				{lowestAsk
+					? lowestAsk.storage_size
+					: 'No storage info'}
 			</p>
-			<h3>{price}</h3>
+			<h3>
+				{lowestAsk ? lowestAsk.price : 'No price info'}
+			</h3>
 			<p>{quantity} Available</p>
 			<div>
 				<a href='#' className='btn btn-primary btn-sm my-1'>
