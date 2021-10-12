@@ -1,4 +1,4 @@
-import { useContext, useRef, useEffect } from 'react';
+import { useContext } from 'react';
 import PhoneContext from '../../context/phone-context/phoneContext';
 const Search = () => {
 	const phoneContext = useContext(PhoneContext);

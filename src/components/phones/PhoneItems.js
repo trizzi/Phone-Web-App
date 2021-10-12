@@ -1,18 +1,12 @@
-import PhoneContext from '../../context/phone-context/phoneContext';
-import { useContext } from 'react';
+// import PhoneContext from '../../context/phone-context/phoneContext';
+// import { useContext } from 'react';
 
 const PhoneItems = ({
 	phone: { imgUrl, name, quantity, lowestAsk },
 }) => {
-	console.log('lowestAsk --> ', lowestAsk);
-	const phoneContext = useContext(PhoneContext);
-	// const { carrier, storage_size, price } = phoneContext;
+	// const phoneContext = useContext(PhoneContext);
+	// console.log('lowestAsk --> ', lowestAsk);
 
-	// useEffect(() => {
-	// 	phoneContext.getPhonesPrice();
-	// 	// eslint-disable-next-line
-	// }, []);
-	// console.log('vvv', price);
 	return (
 		<div className='card text-center  bg-grey'>
 			<img src={imgUrl} alt='' style={{ width: '60px' }} />

@@ -25,12 +25,20 @@ export default (state, action) => {
 			return {
 				...state,
 				filtered: state.phones.filter((phone) => {
-					const regex = new RegExp(
-						`${action.payload},  '^[0-9,]*$gi'`
+					// const regex = new RegExp(
+					// 	`${action.payload},  '^[0-9,]*$gi'`
+					// );
+					return (
+						phone.name
+							.toLowerCase()
+							.includes(action.payload) ||
+						phone.lowestAsk.storage_size
+							.toLowerCase()
+							.includes(action.payload) ||
+						phone.lowestAsk.grade
+							.toLowerCase()
+							.includes(action.payload)
 					);
-					return phone.name
-						.toLowerCase()
-						.includes(action.payload);
 				}),
 			};
 		case CLEAR_FILTER:
